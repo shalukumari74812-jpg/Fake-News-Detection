@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FactNova Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#f4f4f4;
+    padding:30px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card h2{
+    margin:0;
+    font-size:35px;
+}
+
+.chart-box{
+    margin-top:40px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+}
+
+.review-box{
+    margin-top:40px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+}
+
+.review{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>FactNova Dashboard</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>{{ total_checked }}</h2>
+            <p>Total Checked</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ real_news }}</h2>
+            <p>Real News</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ fake_news }}</h2>
+            <p>Fake News</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ accuracy }}%</h2>
+            <p>Accuracy</p>
+        </div>
+
+    </div>
+
+    <div class="chart-box">
+
+        <canvas id="newsChart"></canvas>
+
+    </div>
+
+    <div class="review-box">
+
+        <h2>
+            Average Rating :
+            ⭐ {{ avg_rating }}/5
+        </h2>
+
+        <h3>User Reviews</h3>
+
+        {% for review in reviews %}
+
+            <div class="review">
+
+                <strong>
+                    ⭐ {{ review[0] }}/5
+                </strong>
+
+                <p>{{ review[1] }}</p>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<script>
+
+const ctx = document.getElementById('newsChart');
+
+new Chart(ctx, {
+
+    type: 'doughnut',
+
+    data: {
+
+        labels: [
+
+            'Real News',
+            'Fake News'
+
+        ],
+
+        datasets: [{
+
+            data: 
+
+                { real_news },
+                { fake_news },
+
+            ]
+        }
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login Page</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:#f3f3f3;
+        }
+
+        /* MAIN BOX */
+
+        .container{
+            width:850px;
+            height:500px;
+            background:white;
+            border-radius:30px;
+            overflow:hidden;
+            display:flex;
+            box-shadow:0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* LEFT SIDE */
+
+        .left{
+            width:45%;
+            background:#2f3468;
+            color:white;
+            padding:50px 40px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+        }
+
+        .logo{
+            font-size:32px;
+            font-weight:700;
+            margin-bottom:60px;
+            color:#c471f5;
+        }
+
+        .left h1{
+            font-size:45px;
+            line-height:55px;
+            margin-bottom:20px;
+        }
+
+        .left p{
+            color:#ddd;
+            line-height:28px;
+            font-size:15px;
+        }
+
+        /* RIGHT SIDE */
+
+        .right{
+            width:55%;
+            padding:60px 50px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+        }
+
+        .right h2{
+            font-size:42px;
+            margin-bottom:35px;
+            color:#222;
+        }
+
+        /* FORM */
+
+        form{
+            width:100%;
+        }
+
+        .input-box{
+            margin-bottom:25px;
+        }
+
+        .input-box input{
+            width:100%;
+            padding:12px 5px;
+            border:none;
+            border-bottom:2px solid #ddd;
+            outline:none;
+            font-size:15px;
+            transition:0.3s;
+        }
+
+        .input-box input:focus{
+            border-color:#a855f7;
+        }
+
+        /* BUTTON */
+
+        button{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:10px;
+            background:linear-gradient(to right,#c471f5,#7b2ff7);
+            color:white;
+            font-size:17px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            transform:translateY(-2px);
+            box-shadow:0 8px 20px rgba(123,47,247,0.3);
+        }
+
+        .bottom-text{
+            margin-top:20px;
+            text-align:center;
+            color:#555;
+        }
+
+        .bottom-text a{
+            color:#a855f7;
+            text-decoration:none;
+            font-weight:600;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:900px){
+
+            .container{
+                width:95%;
+                height:auto;
+                flex-direction:column;
+            }
+
+            .left,
+            .right{
+                width:100%;
+            }
+
+            .left{
+                text-align:center;
+                padding:40px 30px;
+            }
+
+            .left h1{
+                font-size:36px;
+                line-height:45px;
+            }
+
+            .right{
+                padding:40px 25px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT -->
+
+        <div class="left">
+
+            <div class="logo">FACTNOVA</div>
+
+            <h1>Welcome Back</h1>
+
+            <p>
+                Login to continue your journey.
+                Secure authentication with your existing backend connection.
+            </p>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="right">
+
+            <h2>Login</h2>
+
+            <form method="POST" action="/login">
+
+                <div class="input-box">
+                    <input type="text" name="user_id" placeholder="User ID" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+
+                <button type="submit">Login</button>
+
+            </form>
+
+            <div class="bottom-text">
+                Don't have an account?
+                <a href="/">Signup</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
